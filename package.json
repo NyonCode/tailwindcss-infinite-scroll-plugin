@@ -1,0 +1,26 @@
+{
+  "name": "tailwindcss-plugin-start-pack",
+  "version": "1.0.0",
+  "description": "Your Tailwind CSS plugin description",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\""
+  },
+  "keywords": [
+    "tailwindcss",
+    "plugin",
+    "starter",
+    "pack"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "peerDependencies": {
+    "tailwindcss": "^3.0.0"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1",
+    "prettier": "3.3.3",
+    "tailwindcss": "^3.4.13"
+  }
+}
