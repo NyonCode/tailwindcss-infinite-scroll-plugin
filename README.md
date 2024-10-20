@@ -1,75 +1,143 @@
-# Tailwind CSS Plugin Starter Pack
+#  Tailwind CSS Infinite Scroll Plugin
 
-This is a starter pack for creating Tailwind CSS plugins. It provides a basic structure and configuration to help you
-get started with developing your own custom Tailwind CSS plugins.
-
-## Features
-
-- Basic plugin structure
-- Jest for testing
-- Prettier for code formatting
-- npm scripts for common tasks
+This plugin adds utilities to create infinite scrolling effects in Tailwind CSS.
 
 ## Installation
 
-To use this starter pack, follow these steps:
+1. Install the plugin:
 
-1. Clone this repository:
-   ```
-   git clone https://github.com/NyonCode/tailwindcss-plugin-starter-pack.git
-   ```
-2. Navigate to the project directory:
-   ```
-   cd tailwindcss-plugin-start-pack
-   ```
-3. Install dependencies:
-   ```
-   npm install
-   ```
+```bash
+npm install tailwindcss-infinite-scroll
+```
+
+2. Add the plugin to your `tailwind.config.js` file:
+
+```javascript
+module.exports = {
+  // ...
+  plugins: [
+    require('tailwindcss-infinite-scroll'),
+    // ...
+  ],
+}
+```
 
 ## Usage
 
-1. Implement your plugin logic in `src/index.js`.
-2. Add any necessary theme extensions in the `theme.extend` object.
-3. Write tests for your plugin in the `__tests__` directory.
-4. Run tests:
-   ```
-   npm test
-   ```
-5. Format your code:
-   ```
-   npm run format
-   ```
+The plugin provides several utilities for creating infinite scroll effects:
 
-## Configuration
+### Basic Animation
 
-- `jest.config.js`: Contains Jest configuration for running tests.
-- `.prettierrc`: (If you have one) Contains Prettier configuration for code formatting.
+Use the `animate-infinite-scroll` class to apply the infinite scroll animation:
 
-## License
+```html
+<div class="animate-infinite-scroll">
+  <!-- Your content here -->
+</div>
+```
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+### Scroll Direction
 
-## Contributing
+Use the `scroll-{direction}` utilities to set the scroll direction:
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+- `scroll-left`
+- `scroll-right`
+- `scroll-up`
+- `scroll-down`
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+Example:
 
-## Support
+```html
+<div class="animate-infinite-scroll scroll-left">
+  <!-- Content scrolling to the left -->
+</div>
+```
 
-If you have any questions or need help with using this starter pack, please open an issue in the GitHub repository.
+### Scroll Amount
 
-## Acknowledgements
+You can specify a custom scroll amount:
 
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Jest](https://jestjs.io/)
-- [Prettier](https://prettier.io/)
+```html
+<div class="animate-infinite-scroll scroll-left-50%">
+  <!-- Content scrolling to the left by 50% -->
+</div>
+```
 
----
+### Scroll Duration
 
-Happy coding! 🚀
+Control the animation duration with `scroll-duration-{time}`:
+
+```html
+<div class="animate-infinite-scroll scroll-left scroll-duration-10s">
+  <!-- Content scrolling to the left over 10 seconds -->
+</div>
+```
+
+### Horizontal vs Vertical Scrolling
+
+Use `scroll-x` for horizontal scrolling and `scroll-y` for vertical scrolling:
+
+```html
+<div class="animate-infinite-scroll scroll-x scroll-left">
+  <!-- Horizontal scrolling content -->
+</div>
+
+<div class="animate-infinite-scroll scroll-y scroll-up">
+  <!-- Vertical scrolling content -->
+</div>
+```
+
+## Customization
+
+You can customize the available scroll directions and durations in your `tailwind.config.js`:
+
+```javascript
+module.exports = {
+  theme: {
+    extend: {
+      infiniteScroll: {
+        'left-half': 'left 50%',
+        'right-slow': 'right 25%',
+        // Add more custom directions and amounts
+      },
+      duration: {
+        '15s': '15s',
+        '30s': '30s',
+        // Add more custom durations
+      }
+    }
+  }
+}
+```
+
+## Examples
+
+1. Simple left-to-right scroll:
+
+```html
+<div class="animate-infinite-scroll scroll-x scroll-right">
+  <span class="inline-block px-4">Item 1</span>
+  <span class="inline-block px-4">Item 2</span>
+  <span class="inline-block px-4">Item 3</span>
+</div>
+```
+
+2. Vertical scroll with custom duration:
+
+```html
+<div class="animate-infinite-scroll scroll-y scroll-down scroll-duration-15s">
+  <p class="mb-4">Section 1</p>
+  <p class="mb-4">Section 2</p>
+  <p class="mb-4">Section 3</p>
+</div>
+```
+
+3. Custom scroll amount:
+
+```html
+<div class="animate-infinite-scroll scroll-left-half">
+  <!-- Content scrolling left by 50% -->
+</div>
+```
+
+These utilities provide a flexible way to create infinite scroll effects in your Tailwind CSS projects. Experiment with different combinations to achieve the desired scrolling behavior.
