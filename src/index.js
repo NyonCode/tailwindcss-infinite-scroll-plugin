@@ -29,7 +29,7 @@ module.exports = plugin(function({ addUtilities, theme, matchUtilities }) {
       'scroll': (value) => {
         const [direction, amount = '100%'] = value.split(' ')
         const isNegative = direction === 'left' || direction === 'up'
-        const axis = direction === 'left' || direction === 'right' ? 'X' : 'Y'
+        //const axis = direction === 'left' || direction === 'right' ? 'X' : 'Y'
         return {
           '--scroll-start': isNegative ? `0` : `-${amount}`,
           '--scroll-end': isNegative ? `-${amount}` : `0`,
